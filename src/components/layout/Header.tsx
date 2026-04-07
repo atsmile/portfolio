@@ -8,7 +8,11 @@ const navLinks = [
   { label: "Works", href: "#works" },
 ];
 
-export default function Header() {
+type Props = {
+  name: string;
+};
+
+export default function Header({ name }: Props) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -30,14 +34,14 @@ export default function Header() {
           href="#"
           className="text-green-600 font-medium text-base hover:text-green-500 transition-colors"
         >
-          hanafusa
+          {name}
         </a>
         <nav className="flex items-center gap-6">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-gray-600 hover:text-green-500 transition-colors"
+              className="text-sm text-[#555] hover:text-green-500 transition-colors"
             >
               {link.label}
             </a>

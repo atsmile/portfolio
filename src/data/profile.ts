@@ -1,5 +1,5 @@
 export const profile = {
-  name: "hanafusa",
+  name: "Tomoaki Hanafusa",
   role: "Frontend Engineer",
   roleJa: "フロントエンドエンジニア",
   location: "宮崎県在住",
@@ -35,3 +35,17 @@ export const careers = [
     isCurrent: true,
   },
 ];
+
+export const profileAnon = {
+  ...profile,
+  name: "atsmile",
+  bio: "M県在住。React / Next.js を中心にフロントエンドの実装を担当してきました。バックエンドも多少触れます。QA エンジニア出身のため、品質への意識を大切にしています。",
+  github: "",
+};
+
+export const careersAnon = careers.map((item) => ({
+  ...item,
+  description: item.description
+    .replace("Panasonic・NTTデータMSE・KEYENCE", "複数社")
+    .replace("エイチームライフデザイン", "勤務先"),
+}));

@@ -1,9 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { profile } from "@data/profile";
 
-export default function HeroSection() {
+type Profile = {
+  name: string;
+  role: string;
+  roleJa: string;
+  bio: string;
+};
+
+type Props = {
+  profile: Profile;
+};
+
+export default function HeroSection({ profile }: Props) {
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
@@ -15,12 +25,13 @@ export default function HeroSection() {
     <section className="flex items-center pb-20 w-full">
       <div className="max-w-4xl mx-auto w-full px-6">
         <div className="flex items-center justify-between gap-8">
+          {/* テキスト */}
           <div className="flex-1">
             <span className="inline-block text-xs font-medium bg-green-100 text-green-500 border border-green-300 px-3 py-1 rounded-full mb-4">
               {profile.role}
             </span>
             <h1 className="text-4xl font-medium text-green-600 mb-2 leading-tight">
-              Hi, I&apos;m {profile.name}
+              Welcome, I&apos;m {profile.name}
               <span
                 className="inline-block w-0.5 h-9 bg-green-500 ml-1 align-middle"
                 style={{
@@ -32,7 +43,7 @@ export default function HeroSection() {
             <p className="text-lg font-medium text-green-500 mb-4">
               {profile.roleJa}
             </p>
-            <p className="text-sm text-gray-600 leading-relaxed mb-7 max-w-sm">
+            <p className="text-sm text-[#555] leading-relaxed mb-7 max-w-sm">
               {profile.bio}
             </p>
             <div className="flex gap-3 flex-wrap">
@@ -42,7 +53,6 @@ export default function HeroSection() {
               >
                 Works を見る
               </a>
-
               <a
                 href="#about"
                 className="text-green-500 border border-green-500 text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-green-100 transition-all"

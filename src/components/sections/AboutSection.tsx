@@ -1,26 +1,48 @@
 import SectionTitle from "@components/ui/SectionTitle";
-import { profile, careers } from "@data/profile";
 
-const cards = [
-  {
-    title: "Profile",
-    body: `宮崎県在住のフロントエンドエンジニア。\n${profile.hobby}`,
-  },
-  {
-    title: "Experience",
-    body: `${profile.experience}。\nQAエンジニア出身で品質への意識が強みです。`,
-  },
-  {
-    title: "Specialty",
-    body: "React / Next.js を中心にフロントエンドの実装を担当。\nバックエンドも多少触れます。",
-  },
-  {
-    title: "Now",
-    body: "フルリモート勤務を希望し、次のチャレンジを探しています。\nバックエンドやインフラも勉強中です。",
-  },
-];
+type Profile = {
+  name: string;
+  role: string;
+  roleJa: string;
+  location: string;
+  bio: string;
+  experience: string;
+  hobby: string;
+  now: string;
+};
 
-export default function AboutSection() {
+type Career = {
+  period: string;
+  title: string;
+  description: string;
+  isCurrent?: boolean;
+};
+
+type Props = {
+  profile: Profile;
+  careers: Career[];
+};
+
+export default function AboutSection({ profile, careers }: Props) {
+  const cards = [
+    {
+      title: "Profile",
+      body: `${profile.location}のフロントエンドエンジニア。\n${profile.hobby}`,
+    },
+    {
+      title: "Experience",
+      body: `${profile.experience}。\nQAエンジニア出身で品質への意識が強みです。`,
+    },
+    {
+      title: "Specialty",
+      body: "React / Next.js を中心にフロントエンドの実装を担当。\nバックエンドも多少触れます。",
+    },
+    {
+      title: "Now",
+      body: profile.now,
+    },
+  ];
+
   return (
     <section id="about" className="py-20">
       <div className="max-w-4xl mx-auto w-full px-6">
@@ -36,7 +58,7 @@ export default function AboutSection() {
               <p className="text-xs font-medium text-green-600 mb-1.5">
                 {card.title}
               </p>
-              <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-line">
+              <p className="text-sm text-[#555] leading-relaxed whitespace-pre-line">
                 {card.body}
               </p>
             </div>
