@@ -32,13 +32,4 @@ export const works: Work[] = [
     tags: ["HTML", "CSS", "jQuery"],
     category: "Portfolio",
   },
-  {
-    id: "portfolio-2017",
-    title: "Portfolio 2017",
-    description:
-      "職業訓練中に制作したオリジナル版ポートフォリオ。Java も含む構成。",
-    url: "https://atsmile.net/works/portfolio/2017/0000/",
-    tags: ["HTML", "CSS", "jQuery"],
-    category: "Portfolio",
-  },
 ];
