@@ -23,29 +23,12 @@ export default function WorkCard({
             className="w-full h-full object-cover"
           />
         ) : (
-          <svg
-            width="56"
-            height="56"
-            viewBox="0 0 56 56"
-            fill="none"
-            className="opacity-20"
-          >
-            <rect
-              x="3"
-              y="8"
-              width="50"
-              height="40"
-              rx="5"
-              stroke="#3B6D11"
-              strokeWidth="2.5"
-              fill="none"
-            />
-            <path d="M3 20h50" stroke="#3B6D11" strokeWidth="2" fill="none" />
-            <circle cx="12" cy="14" r="2" fill="#3B6D11" />
-            <circle cx="19" cy="14" r="2" fill="#3B6D11" />
-            <rect x="10" y="28" width="36" height="4" rx="2" fill="#3B6D11" />
-            <rect x="10" y="36" width="24" height="4" rx="2" fill="#3B6D11" />
-          </svg>
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src="/images/work-placeholder.svg"
+            alt=""
+            className="opacity-50"
+          />
         )}
       </div>
       <div className="p-4">
