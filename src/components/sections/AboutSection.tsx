@@ -31,12 +31,12 @@ export default function AboutSection() {
           {cards.map((card) => (
             <div
               key={card.title}
-              className="bg-white rounded-xl p-5 border border-[#c0dd97]"
+              className="bg-white rounded-xl p-5 border border-green-200"
             >
-              <p className="text-xs font-medium text-[#27500a] mb-1.5">
+              <p className="text-xs font-medium text-green-600 mb-1.5">
                 {card.title}
               </p>
-              <p className="text-sm text-[#555] leading-relaxed whitespace-pre-line">
+              <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-line">
                 {card.body}
               </p>
             </div>
@@ -44,10 +44,10 @@ export default function AboutSection() {
         </div>
 
         {/* キャリア */}
-        <p className="text-xs font-medium text-[#888] uppercase tracking-widest mb-3">
+        <p className="text-xs font-medium text-gray-400 uppercase tracking-widest mb-3">
           Career
         </p>
-        <div className="rounded-xl border border-[#ddd] overflow-hidden">
+        <div className="rounded-xl border border-gray-200 overflow-hidden">
           {careers.map((item, i) => (
             <div
               key={i}
@@ -55,17 +55,17 @@ export default function AboutSection() {
             >
               <div
                 className={`w-2.5 h-2.5 rounded-full flex-shrink-0 mt-1.5 ${
-                  item.isCurrent ? "bg-[#639922]" : "bg-[#97c459]"
+                  item.isCurrent ? "bg-green-400" : "bg-green-300"
                 }`}
               />
-              <div className="text-xs font-medium text-[#3b6d11] min-w-[88px] flex-shrink-0 pt-0.5">
+              <div className="text-xs font-medium text-green-500 min-w-[88px] flex-shrink-0 pt-0.5">
                 {item.period}
               </div>
               <div>
                 <p className="text-sm font-medium text-[#1a1a1a] mb-0.5">
                   {item.title}
                 </p>
-                <p className="text-xs text-[#666] leading-relaxed">
+                <p className="text-xs text-gray-500 leading-relaxed">
                   {item.description}
                 </p>
               </div>

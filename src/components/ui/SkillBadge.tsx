@@ -1,15 +1,15 @@
 import { Skill } from "@lib/index";
 
 const styleMap: Record<Skill["level"], string> = {
-  main: "bg-[#eaf3de] text-[#27500a] border-[#97c459]",
-  sub: "bg-[#f7faf4] text-[#3b6d11] border-[#c0dd97]",
-  other: "bg-white text-[#888] border-[#ddd]",
+  main: "bg-green-100 text-green-600 border-green-300",
+  sub: "bg-green-50 text-green-500 border-green-200",
+  other: "bg-white text-gray-400 border-gray-200",
 };
 
 const dotMap: Record<Skill["level"], string> = {
-  main: "bg-[#639922]",
-  sub: "bg-[#97c459]",
-  other: "bg-[#ccc]",
+  main: "bg-green-400",
+  sub: "bg-green-300",
+  other: "bg-gray-300",
 };
 
 export default function SkillBadge({ name, level }: Skill) {

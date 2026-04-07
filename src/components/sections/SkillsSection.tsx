@@ -6,10 +6,10 @@ const legend = [
   {
     level: "main" as const,
     label: "メイン（実務で使用）",
-    dot: "bg-[#639922]",
+    dot: "bg-green-400",
   },
-  { level: "sub" as const, label: "サブ（使用経験あり）", dot: "bg-[#97c459]" },
-  { level: "other" as const, label: "その他・学習中", dot: "bg-[#ccc]" },
+  { level: "sub" as const, label: "サブ（使用経験あり）", dot: "bg-green-300" },
+  { level: "other" as const, label: "その他・学習中", dot: "bg-gray-300" },
 ];
 
 export default function SkillsSection() {
@@ -23,7 +23,7 @@ export default function SkillsSection() {
           {legend.map((l) => (
             <div
               key={l.level}
-              className="flex items-center gap-1.5 text-xs text-[#666]"
+              className="flex items-center gap-1.5 text-xs text-gray-500"
             >
               <span className={`w-2 h-2 rounded-full ${l.dot}`} />
               {l.label}
@@ -35,7 +35,7 @@ export default function SkillsSection() {
         <div className="space-y-7">
           {skillGroups.map((group) => (
             <div key={group.label}>
-              <p className="text-xs font-medium text-[#888] uppercase tracking-widest mb-3 pb-2 border-b border-[#eee]">
+              <p className="text-xs font-medium text-gray-400 uppercase tracking-widest mb-3 pb-2 border-b border-[#eee]">
                 {group.label}
               </p>
               <div className="flex flex-wrap gap-2">

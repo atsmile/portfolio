@@ -21,14 +21,14 @@ export default function Header() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur border-b border-[#c0dd97]"
+          ? "bg-white/90 backdrop-blur border-b border-green-200"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
         <a
           href="#"
-          className="text-[#27500a] font-medium text-base hover:text-[#3b6d11] transition-colors"
+          className="text-green-600 font-medium text-base hover:text-green-500 transition-colors"
         >
           hanafusa
         </a>
@@ -37,7 +37,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-[#555] hover:text-[#3b6d11] transition-colors"
+              className="text-sm text-gray-600 hover:text-green-500 transition-colors"
             >
               {link.label}
             </a>

@@ -16,36 +16,36 @@ export default function HeroSection() {
       <div className="max-w-4xl mx-auto w-full px-6">
         <div className="flex items-center justify-between gap-8">
           <div className="flex-1">
-            <span className="inline-block text-xs font-medium bg-[#eaf3de] text-[#3b6d11] border border-[#97c459] px-3 py-1 rounded-full mb-4">
+            <span className="inline-block text-xs font-medium bg-green-100 text-green-500 border border-green-300 px-3 py-1 rounded-full mb-4">
               {profile.role}
             </span>
-            <h1 className="text-4xl font-medium text-[#27500a] mb-2 leading-tight">
+            <h1 className="text-4xl font-medium text-green-600 mb-2 leading-tight">
               Hi, I&apos;m {profile.name}
               <span
-                className="inline-block w-0.5 h-9 bg-[#3b6d11] ml-1 align-middle"
+                className="inline-block w-0.5 h-9 bg-green-500 ml-1 align-middle"
                 style={{
                   opacity: showCursor ? 1 : 0,
                   transition: "opacity 0.1s",
                 }}
               />
             </h1>
-            <p className="text-lg font-medium text-[#3b6d11] mb-4">
+            <p className="text-lg font-medium text-green-500 mb-4">
               {profile.roleJa}
             </p>
-            <p className="text-sm text-[#555] leading-relaxed mb-7 max-w-sm">
+            <p className="text-sm text-gray-600 leading-relaxed mb-7 max-w-sm">
               {profile.bio}
             </p>
             <div className="flex gap-3 flex-wrap">
               <a
                 href="#works"
-                className="bg-[#3b6d11] text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-[#27500a] transition-all"
+                className="bg-green-500 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-green-600 transition-all"
               >
                 Works を見る
               </a>
 
               <a
                 href="#about"
-                className="text-[#3b6d11] border border-[#3b6d11] text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-[#eaf3de] transition-all"
+                className="text-green-500 border border-green-500 text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-green-100 transition-all"
               >
                 About me
               </a>
@@ -53,8 +53,8 @@ export default function HeroSection() {
           </div>
 
           {/* アバター */}
-          <div className="w-40 h-40 rounded-full bg-[#c0dd97] border-2 border-[#97c459] flex items-center justify-center flex-shrink-0">
-            <span className="text-5xl font-medium text-[#3b6d11]">H</span>
+          <div className="w-40 h-40 rounded-full bg-green-200 border-2 border-green-300 flex items-center justify-center flex-shrink-0">
+            <span className="text-5xl font-medium text-green-500">H</span>
           </div>
         </div>
 
@@ -62,7 +62,7 @@ export default function HeroSection() {
         <div className="mt-16 flex justify-center">
           <a
             href="#about"
-            className="flex flex-col items-center gap-1 text-[#97c459] hover:text-[#639922] transition-colors"
+            className="flex flex-col items-center gap-1 text-green-300 hover:text-green-400 transition-colors"
           >
             <span className="text-[11px] tracking-widest uppercase">
               scroll
