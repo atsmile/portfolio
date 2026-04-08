@@ -33,7 +33,7 @@ Vercel にデプロイ済み。
 - `src/data/profile.ts` … profile（実名）・profileAnon（匿名）・careers・careersAnon
 - `src/data/works.ts` … Works データ（anonUrl・publicOnly フラグあり）
 - `src/data/skills.ts` … スキルデータ
-- `src/lib/index.ts` … 型定義（Work・Skill・SkillGroup）
+- `src/defs/types/index.ts` … 型定義（Work・Skill・SkillGroup）
 - `src/components/sections/` … 各セクション
 - `src/components/ui/` … 共通UIパーツ
 - `public/images/` … 画像ファイル（works/ にサムネイル追加予定）
@@ -55,11 +55,11 @@ green-50〜green-600 / gray-200〜gray-600 を使用。
 
 - `@components/` → `src/components/`
 - `@data/` → `src/data/`
-- `@lib/` → `src/lib/`
+- `@defs/types/` → `src/defs/types/`
 
 ## 今後のタスク
 
 - [ ] Worksのサムネイル画像追加（public/images/works/）
 - [ ] TodoアプリをGitHub再作成後にWorksへ追加
-- [ ] lib/ ディレクトリの型ファイル名整理の検討
+- [x] lib/ ディレクトリの型ファイル名整理の検討
 - [ ] ブログの配置方針検討（atsmile.net 配下）

@@ -1,4 +1,4 @@
-import { Work } from "@lib/index";
+import { Work } from "@defs/types";
 
 export const works: Work[] = [
   {

@@ -1,4 +1,4 @@
-import { Skill } from "@lib/index";
+import { Skill } from "@defs/types";
 
 const styleMap: Record<Skill["level"], string> = {
   main: "bg-green-100 text-green-600 border-green-300",

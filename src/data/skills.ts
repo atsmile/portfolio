@@ -1,4 +1,4 @@
-import { SkillGroup } from "@lib/index";
+import { SkillGroup } from "@defs/types";
 
 export const skillGroups: SkillGroup[] = [
   {
