@@ -24,7 +24,7 @@ export default function HeroSection({ profile }: Props) {
   return (
     <section className="flex items-center pb-20 w-full">
       <div className="max-w-4xl mx-auto w-full px-6">
-        <div className="flex items-center justify-between gap-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
           {/* テキスト */}
           <div className="flex-1">
             <span className="inline-block text-xs font-medium bg-green-100 text-green-500 border border-green-300 px-3 py-1 rounded-full mb-4">
@@ -63,7 +63,7 @@ export default function HeroSection({ profile }: Props) {
           </div>
 
           {/* アバター */}
-          <div className="w-40 h-40 rounded-full bg-green-200 border-2 border-green-300 flex items-center justify-center flex-shrink-0">
+          <div className="hidden sm:flex w-40 h-40 rounded-full bg-green-200 border-2 border-green-300 items-center justify-center flex-shrink-0">
             <span className="text-5xl font-medium text-green-500">H</span>
           </div>
         </div>
