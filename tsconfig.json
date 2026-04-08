@@ -21,7 +21,7 @@
     "paths": {
       "@components/*": ["./src/components/*"],
       "@data/*": ["./src/data/*"],
-      "@defs/types/*": ["./src/defs/types/*"]
+      "@defs/*": ["./src/defs/*"]
     }
   },
   "include": [
