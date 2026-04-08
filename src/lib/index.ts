@@ -3,6 +3,7 @@ export type Work = {
   title: string;
   description: string;
   url: string;
+  anonUrl?: string;
   tags: string[];
   category: string;
   imagePath?: string;
@@ -10,6 +11,7 @@ export type Work = {
     user: string;
     password: string;
   };
+  publicOnly?: boolean;
 };
 
 export type Skill = {

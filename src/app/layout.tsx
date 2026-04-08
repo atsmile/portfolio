@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "hanafusa | Frontend Engineer",
   description:
     "宮崎在住のフロントエンドエンジニア。React / Next.js を中心に UI 開発をしています。",
 };

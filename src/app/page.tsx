@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Header from "@components/layout/Header";
 import Footer from "@components/layout/Footer";
 import HeroSection from "@components/sections/HeroSection";
@@ -9,6 +10,17 @@ import { profile, profileAnon, careers, careersAnon } from "@data/profile";
 type Props = {
   searchParams: Promise<{ v?: string }>;
 };
+
+export async function generateMetadata({
+  searchParams,
+}: Props): Promise<Metadata> {
+  const params = await searchParams;
+  const isPublic = params.v === "full";
+  const name = isPublic ? profile.name : profileAnon.name;
+  return {
+    title: `${name} | Frontend Engineer`,
+  };
+}
 
 export default async function Home({ searchParams }: Props) {
   const params = await searchParams;
@@ -24,9 +36,9 @@ export default async function Home({ searchParams }: Props) {
         <HeroSection profile={currentProfile} />
         <AboutSection profile={currentProfile} careers={currentCareers} />
         <SkillsSection />
-        <WorksSection />
+        <WorksSection isPublic={isPublic} />
       </main>
-      <Footer />
+      <Footer name={currentProfile.name} />
     </>
   );
 }
