@@ -7,6 +7,7 @@ type Profile = {
   role: string;
   roleJa: string;
   bio: string;
+  github: string;
 };
 
 type Props = {
@@ -59,6 +60,16 @@ export default function HeroSection({ profile }: Props) {
               >
                 About me
               </a>
+              {profile.github && (
+                <a
+                  href={profile.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-500 border border-green-500 text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-green-100 transition-all"
+                >
+                  GitHub
+                </a>
+              )}
             </div>
           </div>
 
