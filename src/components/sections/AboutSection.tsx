@@ -49,7 +49,7 @@ export default function AboutSection({ profile, careers }: Props) {
         <SectionTitle eyebrow="About" title="私について" />
 
         {/* 4枚カード */}
-        <div className="grid grid-cols-2 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
           {cards.map((card) => (
             <div
               key={card.title}
