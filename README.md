@@ -103,7 +103,7 @@ URLパラメーター `?v=full` の有無で切り替わる。
 |---|---|
 | `@components/` | `src/components/` |
 | `@data/` | `src/data/` |
-| `@lib/` | `src/lib/` |
+| `@defs/*` | `src/defs/` |
 
 ## 今後のタスク
 
