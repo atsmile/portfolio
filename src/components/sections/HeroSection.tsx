@@ -88,7 +88,13 @@ export default function HeroSection({ profile }: Props) {
             <span className="text-[11px] tracking-widest uppercase">
               scroll
             </span>
-            <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+            <svg
+              width="16"
+              height="20"
+              viewBox="0 0 16 20"
+              fill="none"
+              className="animate-bounce"
+            >
               <path
                 d="M8 2v14M2 10l6 6 6-6"
                 stroke="currentColor"
