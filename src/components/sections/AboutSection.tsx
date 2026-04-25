@@ -53,8 +53,8 @@ export default function AboutSection({ profile, careers }: Props) {
     <section
       data-layout="AboutSection"
       id="about"
-      className={`py-20 transition-opacity duration-700 ease-out ${
-        isInView ? "opacity-100" : "opacity-0"
+      className={`py-20 transition-all duration-700 ease-out ${
+        isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
       ref={ref}
     >
