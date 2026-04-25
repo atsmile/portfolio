@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f7faf4;
+  color: #1a1a1a;
+}
+
 @theme {
   --color-green-50: #f7faf4;
   --color-green-100: #eaf3de;
@@ -13,13 +22,18 @@
   --color-gray-400: #888;
   --color-gray-500: #666;
   --color-gray-600: #555;
+
+  /* アニメーション */
+  --animate-fade-in-up: fadeInUp 0.7s ease-out forwards;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: #f7faf4;
-  color: #1a1a1a;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

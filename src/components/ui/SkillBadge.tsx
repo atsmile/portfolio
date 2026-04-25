@@ -15,6 +15,7 @@ const dotMap: Record<Skill["level"], string> = {
 export default function SkillBadge({ name, level }: Skill) {
   return (
     <span
+      data-layout="SkillBadge"
       className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border ${styleMap[level]}`}
     >
       <span

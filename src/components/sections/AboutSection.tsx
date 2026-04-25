@@ -1,4 +1,8 @@
+"use client";
+
+import { useInView } from "@hooks/useInView";
 import SectionTitle from "@components/ui/SectionTitle";
+import FadeInItem from "@components/ui/FadeInItem";
 
 type Profile = {
   name: string;
@@ -24,6 +28,8 @@ type Props = {
 };
 
 export default function AboutSection({ profile, careers }: Props) {
+  const { ref, isInView } = useInView();
+
   const cards = [
     {
       title: "Profile",
@@ -44,16 +50,25 @@ export default function AboutSection({ profile, careers }: Props) {
   ];
 
   return (
-    <section id="about" className="py-20">
+    <section
+      data-layout="AboutSection"
+      id="about"
+      className={`py-20 transition-opacity duration-700 ease-out ${
+        isInView ? "opacity-100" : "opacity-0"
+      }`}
+      ref={ref}
+    >
       <div className="max-w-4xl mx-auto w-full px-6">
         <SectionTitle eyebrow="About" title="私について" />
 
-        {/* 4枚カード */}
+        {/* プロフィールカード */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-          {cards.map((card) => (
-            <div
+          {cards.map((card, index) => (
+            <FadeInItem
               key={card.title}
               className="bg-white rounded-xl p-5 border border-green-200"
+              delay={index * 100}
+              isInView={isInView}
             >
               <p className="text-xs font-medium text-green-600 mb-1.5">
                 {card.title}
@@ -61,7 +76,7 @@ export default function AboutSection({ profile, careers }: Props) {
               <p className="text-sm text-[#555] leading-relaxed whitespace-pre-line">
                 {card.body}
               </p>
-            </div>
+            </FadeInItem>
           ))}
         </div>
 
@@ -71,9 +86,11 @@ export default function AboutSection({ profile, careers }: Props) {
         </p>
         <div className="rounded-xl border border-gray-200 overflow-hidden">
           {careers.map((item, i) => (
-            <div
+            <FadeInItem
               key={i}
               className="flex gap-4 px-5 py-4 border-b border-[#eee] last:border-b-0 bg-white"
+              delay={(i + cards.length) * 100}
+              isInView={isInView}
             >
               <div
                 className={`w-2.5 h-2.5 rounded-full flex-shrink-0 mt-1.5 ${
@@ -91,7 +108,7 @@ export default function AboutSection({ profile, careers }: Props) {
                   {item.description}
                 </p>
               </div>
-            </div>
+            </FadeInItem>
           ))}
         </div>
       </div>

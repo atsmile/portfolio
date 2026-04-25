@@ -23,9 +23,13 @@ export default function HeroSection({ profile }: Props) {
   }, []);
 
   return (
-    <section className="flex items-center pb-20 w-full">
+    <section
+      data-layout="HeroSection"
+      id="hero"
+      className="flex items-center pb-20 w-full"
+    >
       <div className="max-w-4xl mx-auto w-full px-6">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+        <div className="animate-fade-in-up flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
           {/* テキスト */}
           <div className="flex-1">
             <span className="inline-block text-xs font-medium bg-green-100 text-green-500 border border-green-300 px-3 py-1 rounded-full mb-4">

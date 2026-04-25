@@ -1,8 +1,12 @@
+"use client";
+
+import { useInView } from "@hooks/useInView";
 import SectionTitle from "@components/ui/SectionTitle";
 import SkillBadge from "@components/ui/SkillBadge";
+import FadeInItem from "@components/ui/FadeInItem";
 import { skillGroups } from "@data/skills";
 
-const legend = [
+const skillLevels = [
   {
     level: "main" as const,
     label: "メイン（実務で使用）",
@@ -13,14 +17,23 @@ const legend = [
 ];
 
 export default function SkillsSection() {
+  const { ref, isInView } = useInView();
+
   return (
-    <section id="skills" className="py-20 bg-white">
+    <section
+      data-layout="SkillsSection"
+      id="skills"
+      className={`py-20 bg-white transition-opacity duration-700 ease-out ${
+        isInView ? "opacity-100" : "opacity-0"
+      }`}
+      ref={ref}
+    >
       <div className="max-w-4xl mx-auto w-full px-6">
         <SectionTitle eyebrow="Skills" title="スキルセット" />
 
         {/* 凡例 */}
         <div className="flex flex-wrap gap-5 mb-7">
-          {legend.map((l) => (
+          {skillLevels.map((l) => (
             <div
               key={l.level}
               className="flex items-center gap-1.5 text-xs text-gray-500"
@@ -33,8 +46,12 @@ export default function SkillsSection() {
 
         {/* スキルグループ */}
         <div className="space-y-7">
-          {skillGroups.map((group) => (
-            <div key={group.label}>
+          {skillGroups.map((group, groupIndex) => (
+            <FadeInItem
+              key={group.label}
+              isInView={isInView}
+              delay={groupIndex * 150}
+            >
               <p className="text-xs font-medium text-gray-400 uppercase tracking-widest mb-3 pb-2 border-b border-[#eee]">
                 {group.label}
               </p>
@@ -43,7 +60,7 @@ export default function SkillsSection() {
                   <SkillBadge key={skill.name} {...skill} />
                 ))}
               </div>
-            </div>
+            </FadeInItem>
           ))}
         </div>
       </div>

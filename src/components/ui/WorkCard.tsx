@@ -10,7 +10,10 @@ export default function WorkCard({
   basicAuth,
 }: Work) {
   return (
-    <div className="bg-white rounded-xl border border-green-200 overflow-hidden hover:-translate-y-1 hover:border-green-400 transition-all duration-200">
+    <div
+      data-layout="WorkCard"
+      className="h-full bg-white rounded-xl border border-green-200 overflow-hidden hover:-translate-y-1 hover:border-green-400 transition-all duration-200"
+    >
       <div className="h-36 bg-green-100 border-b border-green-200 flex items-center justify-center relative">
         <span className="absolute top-2.5 left-2.5 text-[11px] font-medium bg-green-200 text-green-600 px-2.5 py-0.5 rounded-full">
           {category}

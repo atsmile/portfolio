@@ -5,7 +5,7 @@ type Props = {
 
 export default function SectionTitle({ eyebrow, title }: Props) {
   return (
-    <div className="mb-8">
+    <div data-layout="SectionTitle" className="mb-8">
       <p className="text-xs font-medium text-green-500 tracking-widest uppercase mb-1">
         {eyebrow}
       </p>
