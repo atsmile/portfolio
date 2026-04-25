@@ -1,12 +1,12 @@
 export type Work = {
   id: string;
   title: string;
+  image?: string;
   description: string;
   url: string;
   anonUrl?: string;
   tags: string[];
   category: string;
-  imagePath?: string;
   basicAuth?: {
     user: string;
     password: string;
