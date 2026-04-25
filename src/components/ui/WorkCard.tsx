@@ -2,11 +2,11 @@ import { Work } from "@defs/types";
 
 export default function WorkCard({
   title,
+  image,
   description,
   url,
   tags,
   category,
-  imagePath,
   basicAuth,
 }: Work) {
   return (
@@ -15,12 +15,12 @@ export default function WorkCard({
         <span className="absolute top-2.5 left-2.5 text-[11px] font-medium bg-green-200 text-green-600 px-2.5 py-0.5 rounded-full">
           {category}
         </span>
-        {imagePath ? (
+        {image ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={imagePath}
+            src={image}
             alt={title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
           />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
