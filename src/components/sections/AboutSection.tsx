@@ -31,7 +31,7 @@ export default function AboutSection({ profile, careers }: Props) {
     },
     {
       title: "Experience",
-      body: `${profile.experience}。\nQAエンジニア出身で品質への意識が強みです。`,
+      body: `${profile.experience}。\nテストエンジニア出身で品質への意識が強みです。`,
     },
     {
       title: "Specialty",

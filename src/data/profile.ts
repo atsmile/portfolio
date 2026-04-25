@@ -3,7 +3,7 @@ export const profile = {
   role: "Frontend Engineer",
   roleJa: "フロントエンドエンジニア",
   location: "宮崎県在住",
-  bio: "宮崎在住。React / Next.js を中心にフロントエンドの実装を担当してきました。バックエンドも多少触れます。QA エンジニア出身のため、品質への意識を大切にしています。",
+  bio: "宮崎在住。React / Next.js を中心にフロントエンドの実装を担当してきました。バックエンドも多少触れます。テストエンジニア出身のため、品質への意識を大切にしています。",
   experience: "フロントエンド開発 7年",
   hobby:
     "休日はN-BOXでドライブ。行き先は気分次第です。キャンプも虎視眈々と準備中。",
@@ -19,9 +19,9 @@ export const careers = [
   },
   {
     period: "2007–2018",
-    title: "QAエンジニア",
+    title: "テストエンジニア",
     description:
-      "Panasonic・NTTデータMSE・KEYENCEにて規格活動・テスト評価業務 (派遣社員)",
+      "Panasonic・NTTデータMSEなどにて規格活動・テスト評価業務 (派遣社員)",
   },
   {
     period: "2017–2019",
@@ -39,13 +39,13 @@ export const careers = [
 export const profileAnon = {
   ...profile,
   name: "atsmile",
-  bio: "M県在住。React / Next.js を中心にフロントエンドの実装を担当してきました。バックエンドも多少触れます。QA エンジニア出身のため、品質への意識を大切にしています。",
+  bio: "M県在住。React / Next.js を中心にフロントエンドの実装を担当してきました。バックエンドも多少触れます。テストエンジニア出身のため、品質への意識を大切にしています。",
   github: "",
 };
 
 export const careersAnon = careers.map((item) => ({
   ...item,
   description: item.description
-    .replace("Panasonic・NTTデータMSE・KEYENCE", "複数社")
+    .replace("Panasonic・NTTデータMSEなど", "複数社")
     .replace("エイチームライフデザイン", "勤務先"),
 }));
