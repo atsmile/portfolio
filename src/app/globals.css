@@ -37,3 +37,13 @@ body {
     transform: translateY(0);
   }
 }
+
+/* アニメーションを減らす設定の時は動かさない */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

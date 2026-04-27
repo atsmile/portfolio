@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 type Profile = {
   name: string;
@@ -78,8 +79,14 @@ export default function HeroSection({ profile }: Props) {
           </div>
 
           {/* アバター */}
-          <div className="hidden sm:flex w-40 h-40 rounded-full bg-green-200 border-2 border-green-300 items-center justify-center flex-shrink-0">
-            <span className="text-5xl font-medium text-green-500">H</span>
+          <div className="hidden sm:flex w-40 h-40 rounded-full border-2 border-green-300 overflow-hidden flex-shrink-0">
+            <Image
+              src="/images/mycar.png"
+              alt="my car"
+              width={160}
+              height={160}
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
 
