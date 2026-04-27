@@ -32,7 +32,7 @@ export default async function Home({ searchParams }: Props) {
   return (
     <>
       <Header name={currentProfile.name} />
-      <main className="pt-24">
+      <main className="pt-10">
         <HeroSection profile={currentProfile} />
         <AboutSection profile={currentProfile} careers={currentCareers} />
         <SkillsSection />
