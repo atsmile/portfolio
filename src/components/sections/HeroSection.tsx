@@ -31,7 +31,6 @@ export default function HeroSection({ profile }: Props) {
     >
       <div className="max-w-4xl mx-auto w-full px-6">
         <div className="animate-fade-in-up flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
-          {/* テキスト */}
           <div className="flex-1">
             <span className="inline-block text-xs font-medium bg-green-100 text-green-500 border border-green-300 px-3 py-1 rounded-full mb-4">
               {profile.role}
@@ -55,13 +54,13 @@ export default function HeroSection({ profile }: Props) {
             <div className="flex gap-3 flex-wrap">
               <a
                 href="#works"
-                className="bg-green-500 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-green-600 transition-all"
+                className="bg-green-500 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-amber-600 transition-all"
               >
                 Works を見る
               </a>
               <a
                 href="#about"
-                className="text-green-500 border border-green-500 text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-green-100 transition-all"
+                className="text-green-500 border border-green-500 text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-amber-50 hover:border-amber-500 hover:text-amber-500 transition-all"
               >
                 About me
               </a>
@@ -70,7 +69,7 @@ export default function HeroSection({ profile }: Props) {
                   href={profile.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-green-500 border border-green-500 text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-green-100 transition-all"
+                  className="text-green-500 border border-green-500 text-sm font-medium px-5 py-2.5 rounded-lg hhover:bg-amber-50 hover:border-amber-500 hover:text-amber-500 transition-all"
                 >
                   GitHub
                 </a>
@@ -94,7 +93,7 @@ export default function HeroSection({ profile }: Props) {
         <div className="mt-16 flex justify-center">
           <a
             href="#about"
-            className="flex flex-col items-center gap-1 text-green-500 hover:text-green-600 transition-colors"
+            className="flex flex-col items-center gap-1 text-amber-500 hover:text-amber-600 transition-colors"
           >
             <span className="text-[11px] tracking-widest uppercase">
               scroll
