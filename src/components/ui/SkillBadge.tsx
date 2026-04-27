@@ -3,7 +3,7 @@ import { Skill } from "@defs/types";
 const styleMap: Record<Skill["level"], string> = {
   main: "bg-green-100 text-green-600 border-green-300",
   sub: "bg-green-50 text-green-500 border-green-200",
-  other: "bg-white text-gray-400 border-gray-200",
+  other: "bg-white text-gray-600 border-gray-200",
 };
 
 const dotMap: Record<Skill["level"], string> = {

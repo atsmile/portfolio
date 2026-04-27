@@ -54,13 +54,13 @@ export default function WorkCard({
         {basicAuth && (
           <div className="bg-white border border-[#eee] rounded-lg px-3 py-2 mb-3 text-[11px] text-gray-500 space-y-1">
             <div className="flex gap-2">
-              <span className="text-gray-400 min-w-[60px]">ID</span>
+              <span className="text-gray-600 min-w-[60px]">ID</span>
               <span className="font-medium text-[#1a1a1a]">
                 {basicAuth.user}
               </span>
             </div>
             <div className="flex gap-2">
-              <span className="text-gray-400 min-w-[60px]">PW</span>
+              <span className="text-gray-600 min-w-[60px]">PW</span>
               <span className="font-medium text-[#1a1a1a]">
                 {basicAuth.password}
               </span>

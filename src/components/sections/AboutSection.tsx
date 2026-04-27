@@ -81,7 +81,7 @@ export default function AboutSection({ profile, careers }: Props) {
         </div>
 
         {/* キャリア */}
-        <p className="text-xs font-medium text-gray-400 uppercase tracking-widest mb-3">
+        <p className="text-xs font-medium text-gray-600 uppercase tracking-widest mb-3">
           Career
         </p>
         <div className="rounded-xl border border-gray-200 overflow-hidden">

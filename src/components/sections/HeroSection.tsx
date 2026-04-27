@@ -94,7 +94,7 @@ export default function HeroSection({ profile }: Props) {
         <div className="mt-16 flex justify-center">
           <a
             href="#about"
-            className="flex flex-col items-center gap-1 text-green-300 hover:text-green-400 transition-colors"
+            className="flex flex-col items-center gap-1 text-green-500 hover:text-green-600 transition-colors"
           >
             <span className="text-[11px] tracking-widest uppercase">
               scroll

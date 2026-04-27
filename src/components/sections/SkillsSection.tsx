@@ -52,7 +52,7 @@ export default function SkillsSection() {
               isInView={isInView}
               delay={groupIndex * 150}
             >
-              <p className="text-xs font-medium text-gray-400 uppercase tracking-widest mb-3 pb-2 border-b border-[#eee]">
+              <p className="text-xs font-medium text-gray-600 uppercase tracking-widest mb-3 pb-2 border-b border-[#eee]">
                 {group.label}
               </p>
               <div className="flex flex-wrap gap-2">
