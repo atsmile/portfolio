@@ -39,5 +39,13 @@ jobs:
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             cd ~/portfolio
             git pull origin main
-            npm ci --omit=dev
+
+            # package-lock.json が変わった時だけ npm ci を実行
+            if git diff HEAD@{1} HEAD -- package-lock.json | grep -q .; then
+              echo "package-lock.json changed, running npm ci"
+              npm ci --omit=dev
+            else
+              echo "package-lock.json unchanged, skipping npm ci"
+            fi
+
             pm2 restart portfolio || pm2 start npm --name "portfolio" -- start
