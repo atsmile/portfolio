@@ -10,6 +10,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "JavaScript", level: "main" },
       { name: "Tailwind CSS", level: "main" },
       { name: "HTML / CSS", level: "main" },
+      { name: "Storybook", level: "main" },
     ],
   },
   {
@@ -28,8 +29,10 @@ export const skillGroups: SkillGroup[] = [
       { name: "Git / GitHub", level: "main" },
       { name: "VRT", level: "main" },
       { name: "Figma", level: "main" },
+      { name: "AWS", level: "sub" },
       { name: "Vercel", level: "sub" },
       { name: "Cloudflare", level: "sub" },
+      { name: "CI/CD", level: "sub" },
     ],
   },
   {
