@@ -4,17 +4,16 @@
 
 ## URL
 
-- 本番（匿名版）: https://portfolio.atsmile.net
-- 本番（実名版）: https://portfolio.atsmile.net?v=full
+- 本番（匿名版）: https://portfolio.atsmile.dev
+- 本番（実名版）: https://portfolio.atsmile.dev?v=full
 
 ## 技術スタック
 
-- **Framework**: Next.js 16 (App Router)
+- **Framework**: Next.js 16.2.2 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS v4
-- **Database**: Supabase（PostgreSQL）※導入予定
-- **Hosting**: Vercel
-- **Domain**: Value Domain（atsmile.net）
+- **Hosting**: AWS EC2
+- **Domain**: Squarespace（portfolio.atsmile.dev）
 
 ## セットアップ
 
@@ -27,15 +26,6 @@ npm run dev
 ```
 
 ブラウザで `http://localhost:3000` を開く。
-
-## 環境変数
-
-`.env.local` をプロジェクトルートに作成して以下を設定する（Supabase導入後）。
-
-```
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
 
 ## ディレクトリ構成
 
@@ -62,7 +52,7 @@ src/
 │   ├── profile.ts        # プロフィールデータ（実名・匿名）
 │   ├── works.ts          # 制作物データ
 │   └── skills.ts         # スキルデータ
-└── lib/
+└── defs/
     └── index.ts          # 型定義
 ```
 
@@ -72,8 +62,8 @@ URLパラメーター `?v=full` の有無で切り替わる。
 
 | URL | 表示 |
 |---|---|
-| `portfolio.atsmile.net` | 匿名版（atsmile） |
-| `portfolio.atsmile.net?v=full` | 実名版（Tomoaki Hanafusa） |
+| `portfolio.atsmile.dev` | 匿名版（atsmile） |
+| `portfolio.atsmile.dev?v=full` | 実名版（Tomoaki Hanafusa） |
 
 切り替わる内容：
 - ヘッダーのロゴ・名前
@@ -103,10 +93,5 @@ URLパラメーター `?v=full` の有無で切り替わる。
 |---|---|
 | `@components/` | `src/components/` |
 | `@data/` | `src/data/` |
-| `@defs/*` | `src/defs/` |
-
-## 今後のタスク
-
-- [ ] Supabase でコンテンツをDB管理に移行
-- [ ] 管理画面の作成
-- [ ] 認証（Supabase Auth）の導入
+| `@hooks/` | `src/hooks/` |
+| `@defs/` | `src/defs/` |
