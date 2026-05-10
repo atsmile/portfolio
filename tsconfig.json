@@ -20,6 +20,7 @@
     ],
     "paths": {
       "@components/*": ["./src/components/*"],
+      "@ui/*": ["./src/components/ui/*"],
       "@data/*": ["./src/data/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@defs/*": ["./src/defs/*"]
