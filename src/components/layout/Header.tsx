@@ -2,18 +2,28 @@
 
 import { useState, useEffect } from "react";
 
-const navLinks = [
+type NavLink = { label: string; href: string; external?: boolean };
+
+const baseNavLinks: NavLink[] = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Works", href: "#works" },
 ];
 
-type Props = {
-  name: string;
+const blogLink: NavLink = {
+  label: "Blog",
+  href: "https://atsmile.net",
+  external: true,
 };
 
-export default function Header({ name }: Props) {
+type Props = {
+  name: string;
+  isPublic?: boolean;
+};
+
+export default function Header({ name, isPublic }: Props) {
   const [scrolled, setScrolled] = useState(false);
+  const navLinks = isPublic ? [...baseNavLinks, blogLink] : baseNavLinks;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -41,6 +51,9 @@ export default function Header({ name }: Props) {
             <a
               key={link.href}
               href={link.href}
+              {...(link.external
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
               className="text-sm text-[#555] hover:text-green-500 transition-colors"
             >
               {link.label}
