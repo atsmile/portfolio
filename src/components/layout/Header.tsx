@@ -1,18 +1,28 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import ButtonLink from "@ui/ButtonLink";
 
-const navLinks = [
+type NavLink = { label: string; href: string; external?: boolean };
+
+const navLinks: NavLink[] = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Works", href: "#works" },
 ];
 
-type Props = {
-  name: string;
+const blogLink: NavLink = {
+  label: "Blog",
+  href: "https://atsmile.net",
+  external: true,
 };
 
-export default function Header({ name }: Props) {
+type Props = {
+  name: string;
+  isPublic?: boolean;
+};
+
+export default function Header({ name, isPublic }: Props) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -41,11 +51,24 @@ export default function Header({ name }: Props) {
             <a
               key={link.href}
               href={link.href}
+              {...(link.external
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
               className="text-sm text-[#555] hover:text-green-500 transition-colors"
             >
               {link.label}
             </a>
           ))}
+          {isPublic && (
+            <ButtonLink
+              size="sm"
+              href={blogLink.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {blogLink.label}
+            </ButtonLink>
+          )}
         </nav>
       </div>
     </header>
