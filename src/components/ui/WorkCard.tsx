@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Work } from "@defs/types";
 
 export default function WorkCard({
@@ -19,18 +20,20 @@ export default function WorkCard({
         <span className="absolute top-2.5 left-2.5 text-[11px] font-medium bg-green-200 text-green-600 px-2.5 py-0.5 rounded-full">
           {category}
         </span>
-        {image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+        {!image ? (
+          <Image
             src={image}
             alt={title}
-            className="w-full h-full object-cover object-top"
+            fill
+            style={{ objectFit: "cover", objectPosition: "top" }}
           />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src="/images/work-placeholder.svg"
             alt=""
+            width={56}
+            height={56}
             className="opacity-50"
           />
         )}
