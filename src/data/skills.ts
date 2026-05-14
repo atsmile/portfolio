@@ -10,7 +10,6 @@ export const skillGroups: SkillGroup[] = [
       { name: "JavaScript", level: "main" },
       { name: "Tailwind CSS", level: "main" },
       { name: "HTML / CSS", level: "main" },
-      { name: "Storybook", level: "main" },
     ],
   },
   {
@@ -20,30 +19,34 @@ export const skillGroups: SkillGroup[] = [
       { name: "GraphQL", level: "main" },
       { name: "Prisma", level: "sub" },
       { name: "PostgreSQL", level: "sub" },
-      { name: "Supabase", level: "other" },
+      { name: "Supabase", level: "sub" },
     ],
   },
   {
-    label: "Tools / Infra",
+    label: "Tools",
     skills: [
       { name: "Git / GitHub", level: "main" },
       { name: "VRT", level: "main" },
       { name: "Figma", level: "main" },
+      { name: "Storybook", level: "main" },
+      { name: "CI/CD", level: "sub" },
+    ],
+  },
+  {
+    label: "Infra",
+    skills: [
       { name: "AWS", level: "sub" },
       { name: "Vercel", level: "sub" },
       { name: "Cloudflare", level: "sub" },
-      { name: "CI/CD", level: "sub" },
     ],
   },
   {
     label: "Other",
     skills: [
       { name: "WordPress", level: "main" },
-      { name: "jQuery", level: "main" },
       { name: "PHP", level: "main" },
       { name: "Photoshop", level: "main" },
       { name: "Illustrator", level: "main" },
-      { name: "Java", level: "other" },
     ],
   },
 ];

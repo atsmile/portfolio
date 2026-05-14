@@ -2,6 +2,18 @@ import { Work } from "@defs/types";
 
 export const works: Work[] = [
   {
+    id: "Portfolio",
+    title: "Portfolio",
+    image: "/images/works/works04_portfolio.webp",
+    description:
+      "Next.js / TypeScript で制作し、EC2 + Nginx + PM2 構成でインフラも自前で構築。",
+    url: "https://github.com/atsmile/portfolio", // 実際のリポジトリ名に変更
+    linkLabel: "コードを見る (GitHub)",
+    anonUrl: "https://portfolio.atsmile.dev/",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "AWS"],
+    category: "Portfolio",
+  },
+  {
     id: "karaoke-compa",
     title: "カラオケ喫茶コンパ",
     image: "/images/works/works03_compa.webp",
@@ -11,6 +23,7 @@ export const works: Work[] = [
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Cloudflare"],
     category: "Web Site",
   },
+
   {
     id: "compass",
     title: "沖本吉宏税理士事務所",
@@ -26,7 +39,7 @@ export const works: Work[] = [
     },
   },
   {
-    id: "portfolio",
+    id: "portfolio-old",
     title: "Portfolio（職業訓練制作）",
     image: "/images/works/works01_portfolio_old.webp",
     description:

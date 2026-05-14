@@ -5,6 +5,7 @@ export default function WorkCard({
   image,
   description,
   url,
+  linkLabel,
   tags,
   category,
   basicAuth,
@@ -73,7 +74,7 @@ export default function WorkCard({
           rel="noopener noreferrer"
           className="text-xs font-medium text-green-500 hover:text-green-600 transition-colors"
         >
-          サイトを見る →
+          {linkLabel ?? "サイトを見る"} →
         </a>
       </div>
     </div>

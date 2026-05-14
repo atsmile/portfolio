@@ -5,6 +5,7 @@ export type Work = {
   description: string;
   url: string;
   anonUrl?: string;
+  linkLabel?: string;
   tags: string[];
   category: string;
   basicAuth?: {
