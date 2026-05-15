@@ -12,7 +12,11 @@
 - **Framework**: Next.js 16.2.2 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS v4
-- **Hosting**: AWS EC2
+- **Hosting**: AWS EC2（Ubuntu 24.04）
+- **Web Server**: Nginx
+- **Process Manager**: PM2
+- **SSL**: Let's Encrypt
+- **CI/CD**: GitHub Actions（main push → SSH → EC2 自動デプロイ）
 - **Domain**: Squarespace（portfolio.atsmile.dev）
 
 ## セットアップ
@@ -60,12 +64,13 @@ src/
 
 URLパラメーター `?v=full` の有無で切り替わる。
 
-| URL | 表示 |
-|---|---|
-| `portfolio.atsmile.dev` | 匿名版（atsmile） |
+| URL                            | 表示                       |
+| ------------------------------ | -------------------------- |
+| `portfolio.atsmile.dev`        | 匿名版（atsmile）          |
 | `portfolio.atsmile.dev?v=full` | 実名版（Tomoaki Hanafusa） |
 
 切り替わる内容：
+
 - ヘッダーのロゴ・名前
 - Heroセクションの名前・自己紹介文
 - AboutセクションのProfileカード
@@ -77,21 +82,66 @@ URLパラメーター `?v=full` の有無で切り替わる。
 
 `globals.css` の `@theme` で定義。
 
-| クラス | カラーコード | 用途 |
-|---|---|---|
-| green-50 | #f7faf4 | ページ背景 |
-| green-100 | #eaf3de | バッジ背景 |
-| green-200 | #c0dd97 | ボーダー |
-| green-300 | #97c459 | ボーダーアクセント |
-| green-400 | #639922 | ドット（main）|
-| green-500 | #3b6d11 | メインテキスト・ボタン |
-| green-600 | #27500a | 濃いテキスト |
+| クラス    | カラーコード | 用途                   |
+| --------- | ------------ | ---------------------- |
+| green-50  | #f7faf4      | ページ背景             |
+| green-100 | #eaf3de      | バッジ背景             |
+| green-200 | #c0dd97      | ボーダー               |
+| green-300 | #97c459      | ボーダーアクセント     |
+| green-400 | #639922      | ドット（main）         |
+| green-500 | #3b6d11      | メインテキスト・ボタン |
+| green-600 | #27500a      | 濃いテキスト           |
 
 ## インポートエイリアス
 
-| エイリアス | パス |
-|---|---|
+| エイリアス     | パス              |
+| -------------- | ----------------- |
 | `@components/` | `src/components/` |
-| `@data/` | `src/data/` |
-| `@hooks/` | `src/hooks/` |
-| `@defs/` | `src/defs/` |
+| `@data/`       | `src/data/`       |
+| `@hooks/`      | `src/hooks/`      |
+| `@defs/`       | `src/defs/`       |
+
+## 設計判断
+
+### なぜ AWS EC2 を選んだか
+
+カラオケ喫茶サイトのVRT（ビジュアルリグレッションテスト）でスクリーンショット保存先にS3を採用したことをきっかけに、AWSを実際に触る機会として本プロジェクトでEC2を選択した。
+
+書籍でAWSの知識はあったが実務での操作経験が限られていたため、Nginxによるリバースプロキシ設定・PM2によるプロセス管理・Let's EncryptによるSSL設定・GitHub ActionsからのSSHデプロイなど、サーバー運用の一連のフローを自分の手で構築することを目的とした。
+
+Vercelでも同等の公開は可能だが、**マネージドサービスに隠れているインフラ層を可視化して理解する**という点でEC2を選んだ。
+
+### コスト
+
+S3・EC2の利用範囲であればAWS無料枠内に収まる見込み。無料期間終了後も同規模であれば継続運用予定。
+
+### レンダリング戦略（今後の対応予定）
+
+現状はApp Routerのデフォルト設定のまま運用している。
+
+1ページ構成で更新頻度が低い静的コンテンツのため、**SSG（静的生成）への切り替えを予定**している。
+
+```ts
+// page.tsx に追加予定
+export const dynamic = "force-static";
+```
+
+コンテンツ更新時はGitHub Actionsによる再デプロイで対応する。EC2構成ではビルド済みの静的ファイルをNginxが直接配信する形になるため、キャッシュ制御もNginx側で明示的に設定する予定。
+
+### 画像最適化（今後の対応予定）
+
+EC2構成ではVercelのような自動画像最適化が行われないため、`sharp` の導入によりNext.jsの画像最適化（WebP変換・リサイズ）を有効化する予定。
+
+## 今後の開発計画
+
+### DB化
+
+現在 `data/` フォルダにTypeScriptファイルとして管理しているプロフィール・制作物・スキルデータを、Supabase（PostgreSQL）+ Prismaによるデータベース管理に移行する予定。コンテンツの更新をコード変更なしに行えるようにすることが目的。
+
+### OAuthアプリの適用
+
+別プロジェクトとして開発中のOAuthアプリをポートフォリオに組み込む予定。
+
+### 管理画面の作成
+
+DB化完了後に、プロフィール・制作物・スキルデータをGUIで管理できる管理画面を実装する予定。コンテンツ更新のたびにコードを変更・デプロイする運用から脱却することを目的とする。

@@ -39,7 +39,6 @@ export const careers = [
 export const profileAnon = {
   ...profile,
   name: "atsmile",
-  bio: "M県在住。React / Next.js を中心にフロントエンドの実装を担当してきました。バックエンドも多少触れます。テストエンジニア出身のため、品質への意識を大切にしています。",
   github: "",
 };
 
