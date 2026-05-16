@@ -9,7 +9,7 @@
 
 ## 技術スタック
 
-- **Framework**: Next.js 16.2.2 (App Router)
+- **Framework**: Next.js 16.2.6 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS v4
 - **Hosting**: AWS EC2（Ubuntu 24.04）
@@ -115,22 +115,17 @@ Vercelでも同等の公開は可能だが、**マネージドサービスに隠
 
 S3・EC2の利用範囲であればAWS無料枠内に収まる見込み。無料期間終了後も同規模であれば継続運用予定。
 
-### レンダリング戦略（今後の対応予定）
+### レンダリング戦略
+
+1ページ構成で更新頻度が低い静的コンテンツのため、SSG（`force-static`）を検討した。しかし `?v=full` のURLパラメーターによる匿名・実名の切り替えに `searchParams` を使用しているため、ビルド時に静的HTMLを生成するSSGとは相性が悪く、採用を見送った。
 
 現状はApp Routerのデフォルト設定のまま運用している。
 
-1ページ構成で更新頻度が低い静的コンテンツのため、**SSG（静的生成）への切り替えを予定**している。
+### 画像最適化
 
-```ts
-// page.tsx に追加予定
-export const dynamic = "force-static";
-```
+EC2構成ではVercelのような自動画像最適化が行われないため、`sharp` を導入しNext.jsの画像最適化（WebP変換・リサイズ）を有効化した。
 
-コンテンツ更新時はGitHub Actionsによる再デプロイで対応する。EC2構成ではビルド済みの静的ファイルをNginxが直接配信する形になるため、キャッシュ制御もNginx側で明示的に設定する予定。
-
-### 画像最適化（今後の対応予定）
-
-EC2構成ではVercelのような自動画像最適化が行われないため、`sharp` の導入によりNext.jsの画像最適化（WebP変換・リサイズ）を有効化する予定。
+画像は現在リポジトリ内で管理しているが、Git管理から外す目的でS3への移行を予定している。移行時は `next.config.ts` にremotePatternsの設定を追加する。
 
 ## 今後の開発計画
 
