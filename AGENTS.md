@@ -30,7 +30,7 @@ Vercel にデプロイ済み。
 ## ディレクトリ構成
 
 - `src/app/page.tsx` … 匿名・実名の切り替えロジック
-- `src/data/profile.ts` … profile（実名）・profileAnon（匿名）・careers・careersAnon
+- `src/data/profile.ts` … profile（実名）・profileAnon（匿名）・careers
 - `src/data/works.ts` … Works データ（anonUrl・publicOnly フラグあり）
 - `src/data/skills.ts` … スキルデータ
 - `src/defs/types/index.ts` … 型定義（Work・Skill・SkillGroup）

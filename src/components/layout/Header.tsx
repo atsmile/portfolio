@@ -13,7 +13,7 @@ const navLinks: NavLink[] = [
 
 const blogLink: NavLink = {
   label: "Blog",
-  href: "https://atsmile.net",
+  href: "https://blog.atsmile.dev/",
   external: true,
 };
 
