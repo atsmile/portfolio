@@ -5,7 +5,7 @@ import HeroSection from "@components/sections/HeroSection";
 import AboutSection from "@components/sections/AboutSection";
 import SkillsSection from "@components/sections/SkillsSection";
 import WorksSection from "@components/sections/WorksSection";
-import { profile, profileAnon, careers, careersAnon } from "@data/profile";
+import { profile, profileAnon, careers } from "@data/profile";
 
 type Props = {
   searchParams: Promise<{ v?: string }>;
@@ -27,14 +27,13 @@ export default async function Home({ searchParams }: Props) {
   const isPublic = params.v === "full";
 
   const currentProfile = isPublic ? profile : profileAnon;
-  const currentCareers = isPublic ? careers : careersAnon;
 
   return (
     <>
       <Header name={currentProfile.name} isPublic={isPublic} />
       <main className="pt-10">
         <HeroSection profile={currentProfile} />
-        <AboutSection profile={currentProfile} careers={currentCareers} />
+        <AboutSection profile={currentProfile} careers={careers} />
         <SkillsSection />
         <WorksSection isPublic={isPublic} />
       </main>

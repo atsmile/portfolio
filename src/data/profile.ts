@@ -20,8 +20,7 @@ export const careers = [
   {
     period: "2007–2018",
     title: "テストエンジニア",
-    description:
-      "Panasonic・NTTデータMSEなどにて規格活動・テスト評価業務 (派遣社員)",
+    description: "大手メーカー・SIerにて規格活動・テスト評価業務（派遣社員）",
   },
   {
     period: "2017–2019",
@@ -31,7 +30,7 @@ export const careers = [
   {
     period: "2018–2025",
     title: "フロントエンドエンジニア",
-    description: "エイチームライフデザインにて UI/UX 開発（派遣→契約社員）",
+    description: "自社サービス企業にてUI/UX開発（派遣→契約社員）",
     isCurrent: true,
   },
 ];
@@ -41,10 +40,3 @@ export const profileAnon = {
   name: "atsmile",
   github: "",
 };
-
-export const careersAnon = careers.map((item) => ({
-  ...item,
-  description: item.description
-    .replace("Panasonic・NTTデータMSEなど", "複数社")
-    .replace("エイチームライフデザイン", "勤務先"),
-}));
