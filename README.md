@@ -1,5 +1,7 @@
 # portfolio
 
+![Next.js](https://img.shields.io/badge/Next.js-16.2.6-black?logo=next.js) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?logo=tailwindcss) ![AWS EC2](https://img.shields.io/badge/AWS-EC2-FF9900?logo=amazon-aws)
+
 ポートフォリオ
 
 ## URL
@@ -56,8 +58,11 @@ src/
 │   ├── profile.ts        # プロフィールデータ（実名・匿名）
 │   ├── works.ts          # 制作物データ
 │   └── skills.ts         # スキルデータ
-└── defs/
-    └── index.ts          # 型定義
+├── defs/
+│   └── types/
+│       └── index.ts      # 型定義
+└── hooks/
+    └── useInView.ts      # Intersection Observer フック（フェードイン用）
 ```
 
 ## 匿名・実名の切り替え
