@@ -3,24 +3,7 @@
 import { useInView } from "@hooks/useInView";
 import SectionTitle from "@components/ui/SectionTitle";
 import FadeInItem from "@components/ui/FadeInItem";
-
-type Profile = {
-  name: string;
-  role: string;
-  roleJa: string;
-  location: string;
-  bio: string;
-  experience: string;
-  hobby: string;
-  now: string;
-};
-
-type Career = {
-  period: string;
-  title: string;
-  description: string;
-  isCurrent?: boolean;
-};
+import type { Profile, Career } from "@defs/types";
 
 type Props = {
   profile: Profile;
@@ -73,7 +56,7 @@ export default function AboutSection({ profile, careers }: Props) {
               <p className="text-xs font-medium text-green-600 mb-1.5">
                 {card.title}
               </p>
-              <p className="text-sm text-[#555] leading-relaxed whitespace-pre-line">
+              <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-line">
                 {card.body}
               </p>
             </FadeInItem>

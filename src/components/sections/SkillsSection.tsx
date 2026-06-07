@@ -4,7 +4,11 @@ import { useInView } from "@hooks/useInView";
 import SectionTitle from "@components/ui/SectionTitle";
 import SkillBadge from "@components/ui/SkillBadge";
 import FadeInItem from "@components/ui/FadeInItem";
-import { skillGroups } from "@data/skills";
+import { type SkillGroup } from "@defs/types";
+
+type Props = {
+  skillGroups: SkillGroup[];
+};
 
 const skillLevels = [
   {
@@ -16,7 +20,7 @@ const skillLevels = [
   { level: "other" as const, label: "その他・学習中", dot: "bg-gray-300" },
 ];
 
-export default function SkillsSection() {
+export default function SkillsSection({ skillGroups }: Props) {
   const { ref, isInView } = useInView();
 
   return (
@@ -30,8 +34,6 @@ export default function SkillsSection() {
     >
       <div className="max-w-4xl mx-auto w-full px-6">
         <SectionTitle eyebrow="Skills" title="スキルセット" />
-
-        {/* 凡例 */}
         <div className="flex flex-wrap gap-5 mb-7">
           {skillLevels.map((l) => (
             <div
@@ -43,8 +45,6 @@ export default function SkillsSection() {
             </div>
           ))}
         </div>
-
-        {/* スキルグループ */}
         <div className="space-y-7">
           {skillGroups.map((group, groupIndex) => (
             <FadeInItem

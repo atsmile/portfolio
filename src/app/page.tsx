@@ -5,7 +5,15 @@ import HeroSection from "@components/sections/HeroSection";
 import AboutSection from "@components/sections/AboutSection";
 import SkillsSection from "@components/sections/SkillsSection";
 import WorksSection from "@components/sections/WorksSection";
-import { profile, profileAnon, careers } from "@data/profile";
+import type { Work, SkillGroup, Profile, Career } from "@defs/types";
+
+type ApiResponse = {
+  works: Work[];
+  skillGroups: SkillGroup[];
+  profile: Profile;
+  profileAnon: Profile;
+  careers: Career[];
+};
 
 type Props = {
   searchParams: Promise<{ v?: string }>;
@@ -16,7 +24,11 @@ export async function generateMetadata({
 }: Props): Promise<Metadata> {
   const params = await searchParams;
   const isPublic = params.v === "full";
-  const name = isPublic ? profile.name : profileAnon.name;
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/all`);
+  const data: ApiResponse = await res.json();
+
+  const name = isPublic ? data.profile.name : data.profileAnon.name;
   return {
     title: `${name} | Frontend Engineer`,
   };
@@ -26,16 +38,19 @@ export default async function Home({ searchParams }: Props) {
   const params = await searchParams;
   const isPublic = params.v === "full";
 
-  const currentProfile = isPublic ? profile : profileAnon;
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/all`);
+  const data: ApiResponse = await res.json();
+
+  const currentProfile = isPublic ? data.profile : data.profileAnon;
 
   return (
     <>
       <Header name={currentProfile.name} isPublic={isPublic} />
       <main className="pt-10">
         <HeroSection profile={currentProfile} />
-        <AboutSection profile={currentProfile} careers={careers} />
-        <SkillsSection />
-        <WorksSection isPublic={isPublic} />
+        <AboutSection profile={currentProfile} careers={data.careers} />
+        <SkillsSection skillGroups={data.skillGroups} />
+        <WorksSection isPublic={isPublic} works={data.works} />
       </main>
       <Footer name={currentProfile.name} />
     </>

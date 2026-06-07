@@ -1,3 +1,22 @@
+export type Profile = {
+  name: string;
+  role: string;
+  roleJa: string;
+  location: string;
+  bio: string;
+  experience: string;
+  hobby: string;
+  now: string;
+  github: string;
+};
+
+export type Career = {
+  period: string;
+  title: string;
+  description: string;
+  isCurrent?: boolean;
+};
+
 export type Work = {
   id: string;
   title: string;
