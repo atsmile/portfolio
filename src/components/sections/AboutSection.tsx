@@ -3,34 +3,16 @@
 import { useInView } from "@hooks/useInView";
 import SectionTitle from "@components/ui/SectionTitle";
 import FadeInItem from "@components/ui/FadeInItem";
-import type { Profile, Career } from "@defs/types";
+import type { Profile, Career, AboutCard } from "@defs/types";
 
 type Props = {
   profile: Profile;
   careers: Career[];
+  aboutCards: AboutCard[];
 };
 
-export default function AboutSection({ profile, careers }: Props) {
+export default function AboutSection({ profile, careers, aboutCards }: Props) {
   const { ref, isInView } = useInView();
-
-  const cards = [
-    {
-      title: "Profile",
-      body: `${profile.location}のフロントエンドエンジニア。\n${profile.hobby}`,
-    },
-    {
-      title: "Experience",
-      body: `${profile.experience}。\nテストエンジニア出身で品質への意識が強みです。`,
-    },
-    {
-      title: "Specialty",
-      body: "React / Next.js を中心にフロントエンドの実装を担当。\nバックエンドも多少触れます。",
-    },
-    {
-      title: "Now",
-      body: profile.now,
-    },
-  ];
 
   return (
     <section
@@ -46,7 +28,7 @@ export default function AboutSection({ profile, careers }: Props) {
 
         {/* プロフィールカード */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-          {cards.map((card, index) => (
+          {aboutCards.map((card, index) => (
             <FadeInItem
               key={card.title}
               className="bg-white rounded-xl p-5 border border-green-200"
@@ -72,7 +54,7 @@ export default function AboutSection({ profile, careers }: Props) {
             <FadeInItem
               key={i}
               className="flex gap-4 px-5 py-4 border-b border-[#eee] last:border-b-0 bg-white"
-              delay={(i + cards.length) * 100}
+              delay={(i + aboutCards.length) * 100}
               isInView={isInView}
             >
               <div

@@ -5,7 +5,7 @@ import HeroSection from "@components/sections/HeroSection";
 import AboutSection from "@components/sections/AboutSection";
 import SkillsSection from "@components/sections/SkillsSection";
 import WorksSection from "@components/sections/WorksSection";
-import type { Work, SkillGroup, Profile, Career } from "@defs/types";
+import type { Work, SkillGroup, Profile, Career, AboutCard } from "@defs/types";
 
 type ApiResponse = {
   works: Work[];
@@ -13,6 +13,7 @@ type ApiResponse = {
   profile: Profile;
   profileAnon: Profile;
   careers: Career[];
+  aboutCards: AboutCard[];
 };
 
 type Props = {
@@ -48,7 +49,11 @@ export default async function Home({ searchParams }: Props) {
       <Header name={currentProfile.name} isPublic={isPublic} />
       <main className="pt-10">
         <HeroSection profile={currentProfile} />
-        <AboutSection profile={currentProfile} careers={data.careers} />
+        <AboutSection
+          profile={currentProfile}
+          careers={data.careers}
+          aboutCards={data.aboutCards}
+        />
         <SkillsSection skillGroups={data.skillGroups} />
         <WorksSection isPublic={isPublic} works={data.works} />
       </main>
