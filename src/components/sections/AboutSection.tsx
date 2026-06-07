@@ -11,7 +11,7 @@ type Props = {
   aboutCards: AboutCard[];
 };
 
-export default function AboutSection({ profile, careers, aboutCards }: Props) {
+export default function AboutSection({ careers, aboutCards }: Props) {
   const { ref, isInView } = useInView();
 
   return (
@@ -58,11 +58,11 @@ export default function AboutSection({ profile, careers, aboutCards }: Props) {
               isInView={isInView}
             >
               <div
-                className={`w-2.5 h-2.5 rounded-full flex-shrink-0 mt-1.5 ${
+                className={`w-2.5 h-2.5 rounded-full shrink-0 mt-1.5 ${
                   item.isCurrent ? "bg-green-400" : "bg-green-300"
                 }`}
               />
-              <div className="text-xs font-medium text-green-500 min-w-[88px] flex-shrink-0 pt-0.5">
+              <div className="text-xs font-medium text-green-500 min-w-22 shrink-0 pt-0.5">
                 {item.period}
               </div>
               <div>
