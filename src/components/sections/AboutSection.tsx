@@ -35,7 +35,7 @@ export default function AboutSection({ careers, aboutCards }: Props) {
               delay={index * 100}
               isInView={isInView}
             >
-              <p className="text-xs font-medium text-green-600 mb-1.5">
+              <p className="text-sm font-medium text-green-600 mb-1.5">
                 {card.title}
               </p>
               <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-line">
