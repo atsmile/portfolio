@@ -43,3 +43,8 @@ export type SkillGroup = {
   label: string;
   skills: Skill[];
 };
+
+export type AboutCard = {
+  title: string;
+  body: string;
+};
