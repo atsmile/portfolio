@@ -3,14 +3,15 @@
 import { useInView } from "@hooks/useInView";
 import SectionTitle from "@components/ui/SectionTitle";
 import WorkCard from "@components/ui/WorkCard";
-import { works } from "@data/works";
 import FadeInItem from "@components/ui/FadeInItem";
+import { type Work } from "@defs/types";
 
 type Props = {
   isPublic: boolean;
+  works: Work[];
 };
 
-export default function WorksSection({ isPublic }: Props) {
+export default function WorksSection({ isPublic, works }: Props) {
   const { ref, isInView } = useInView();
 
   const filteredWorks = works

@@ -3,14 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import ButtonLink from "@ui/ButtonLink";
-
-type Profile = {
-  name: string;
-  role: string;
-  roleJa: string;
-  bio: string;
-  github: string;
-};
+import type { Profile } from "@defs/types";
 
 type Props = {
   profile: Profile;
