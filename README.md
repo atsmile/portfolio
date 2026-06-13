@@ -1,6 +1,6 @@
 # portfolio
 
-![Next.js](https://img.shields.io/badge/Next.js-16.2.6-black?logo=next.js) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?logo=tailwindcss) ![AWS EC2](https://img.shields.io/badge/AWS-EC2-FF9900?logo=amazon-aws)
+![Next.js](https://img.shields.io/badge/Next.js-16.2.6-black?logo=next.js) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?logo=tailwindcss) ![Vercel](https://img.shields.io/badge/Vercel-deployed-black?logo=vercel)
 
 ポートフォリオ
 
@@ -14,12 +14,9 @@
 - **Framework**: Next.js 16.2.6 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS v4
-- **Hosting**: AWS EC2（Ubuntu 24.04）
-- **Web Server**: Nginx
-- **Process Manager**: PM2
-- **SSL**: Let's Encrypt
-- **CI/CD**: GitHub Actions（main push → SSH → EC2 自動デプロイ）
-- **Domain**: Squarespace（portfolio.atsmile.dev）
+- **Hosting**: Vercel
+- **CI/CD**: Vercel（main push → 自動デプロイ）
+- **Domain**: portfolio.atsmile.net
 
 ## セットアップ
 
@@ -108,17 +105,9 @@ URLパラメーター `?v=full` の有無で切り替わる。
 
 ## 設計判断
 
-### なぜ AWS EC2 を選んだか
+### なぜ Vercel に移行したか
 
-カラオケ喫茶サイトのVRT（ビジュアルリグレッションテスト）でスクリーンショット保存先にS3を採用したことをきっかけに、AWSを実際に触る機会として本プロジェクトでEC2を選択した。
-
-書籍でAWSの知識はあったが実務での操作経験が限られていたため、Nginxによるリバースプロキシ設定・PM2によるプロセス管理・Let's EncryptによるSSL設定・GitHub ActionsからのSSHデプロイなど、サーバー運用の一連のフローを自分の手で構築することを目的とした。
-
-Vercelでも同等の公開は可能だが、**マネージドサービスに隠れているインフラ層を可視化して理解する**という点でEC2を選んだ。
-
-### コスト
-
-S3・EC2の利用範囲であればAWS無料枠内に収まる見込み。無料期間終了後も同規模であれば継続運用予定。
+当初はAWSインフラ層の理解を目的にEC2（Nginx・PM2・Let's Encrypt・GitHub Actions SSH デプロイ）で構築・運用した。その後、EC2にAPIサーバーを立てる方針となったため、フロントエンドをVercelに移行してEC2を解放した。
 
 ### レンダリング戦略
 
@@ -128,9 +117,7 @@ S3・EC2の利用範囲であればAWS無料枠内に収まる見込み。無料
 
 ### 画像最適化
 
-EC2構成ではVercelのような自動画像最適化が行われないため、`sharp` を導入しNext.jsの画像最適化（WebP変換・リサイズ）を有効化した。
-
-画像は現在リポジトリ内で管理しているが、Git管理から外す目的でS3への移行を予定している。移行時は `next.config.ts` にremotePatternsの設定を追加する。
+Vercelの自動画像最適化（WebP変換・リサイズ）をそのまま利用している。
 
 ## 今後の開発計画
 
