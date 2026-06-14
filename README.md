@@ -16,7 +16,7 @@
 - **Styling**: Tailwind CSS v4
 - **Hosting**: Vercel
 - **CI/CD**: Vercel（main push → 自動デプロイ）
-- **Domain**: portfolio.atsmile.net
+- **Domain**: portfolio.atsmile.dev
 
 ## セットアップ
 
