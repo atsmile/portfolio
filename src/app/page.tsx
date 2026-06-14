@@ -26,7 +26,7 @@ export async function generateMetadata({
   const params = await searchParams;
   const isPublic = params.v === "full";
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/all`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/all`);
   const data: ApiResponse = await res.json();
 
   const name = isPublic ? data.profile.name : data.profileAnon.name;
@@ -39,7 +39,7 @@ export default async function Home({ searchParams }: Props) {
   const params = await searchParams;
   const isPublic = params.v === "full";
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/all`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/all`);
   const data: ApiResponse = await res.json();
 
   const currentProfile = isPublic ? data.profile : data.profileAnon;
